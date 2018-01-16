@@ -1,7 +1,12 @@
 language: go
 
+os:
+  - linux
+  - osx
+  - windows
+  
 go:
   - 1.x
   - 1.6
   - 1.7.x
-  - 1.9.x windows/amd64
+  - 1.9.x
