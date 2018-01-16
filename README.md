@@ -1,4 +1,5 @@
-xbox_wakeup-go
+
+xbox_wakeup-go [![Build Status](https://travis-ci.org/luoluomeng/xbox_wakeup-go.svg?branch=master)](https://travis-ci.org/luoluomeng/xbox_wakeup-go)
 ======================
 
 This tool is a golang port from xbox-remote-power(https://github.com/Schamper/xbox-remote-power).
