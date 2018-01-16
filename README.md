@@ -3,10 +3,9 @@
 
 
 [![Build Status](https://travis-ci.org/luoluomeng/xbox_wakeup-go.svg?branch=master)](https://travis-ci.org/luoluomeng/xbox_wakeup-go)
-[![GitHub release](http://img.shields.io/github/release/luoluomeng/xbox_wakeup-go.svg?style=flat-square)]
-(https://github.com/luoluomeng/xbox_wakeup-go/releases)
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]
-(https://github.com/luoluomeng/xbox_wakeup-go/blob/master/LICENSE)
+[![GitHub release](http://img.shields.io/github/release/luoluomeng/xbox_wakeup-go.svg?style=flat-square)](https://github.com/luoluomeng/xbox_wakeup-go/releases)
+[![MIT License](https://travis-ci.org/luoluomeng/xbox_wakeup-go.svg?branch=master)](https://github.com/luoluomeng/xbox_wakeup-go/blob/master/LICENSE)
+
 ======================
 
 This tool is a golang port from xbox-remote-power(https://github.com/Schamper/xbox-remote-power)
