@@ -12,12 +12,12 @@ Or set up a vpn to your home network
 
 ## How to use
 ```
-xbwake <ip address> <live id>
+xbox_wakeup-go.exe <ip address> <live id>
 ```
 
-If you are waking your XBOX through WAN, the "ip address" is your external IP
+If you are waking your XBOX through WAN, "ip address" is your external IP
 
-If you are waking your XBOX through Lan and VPN, the "ip address" is the XBOX's LAN IP
+If you are waking your XBOX through Lan and VPN, "ip address" is the XBOX's LAN IP
 
 Your Live device ID can be found at Settings -> System -> Console info on your XBOX
 
