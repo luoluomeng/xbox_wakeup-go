@@ -25,5 +25,5 @@ If you are waking your XBOX through Lan and VPN, "ip address" is the XBOX's LAN 
 
 Your Live device ID can be found at Settings -> System -> Console info on your XBOX
 
-NOTE: Please don't share this information to anyone
+NOTE: Please don't share this ID to anyone
 
