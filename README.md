@@ -9,9 +9,11 @@
 
 This tool is a golang port from xbox-remote-power(https://github.com/Schamper/xbox-remote-power)
 
-You need to forward 5050 port to your XBOX one on you router if you need to wake it on WAN
+You need to forward 5050 port to your XBOX ONE on you router if you need to wake it on WAN
 
-Or set up a vpn to your home network
+If you need to stream your XBOX ONE over internet, you need also forward port 4838,49000-65000 to your XBOX ONE
+
+Or set up a vpn connection to your XBOX's network
 
 
 ## How to use
