@@ -89,8 +89,6 @@ func checAwake(conn *net.UDPConn) bool {
 		conn.SetReadDeadline(time.Now().Add(time.Second * 2))
 		_, err := conn.Read(readBuf)
 		if err == nil {
-			break
-
 			return true
 		}
 		i++
