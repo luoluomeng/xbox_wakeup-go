@@ -91,7 +91,7 @@ func checAwake(conn *net.UDPConn) bool {
 		if err == nil {
 			break
 
-			return false
+			return true
 		}
 		i++
 	}
