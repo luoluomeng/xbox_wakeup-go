@@ -8,6 +8,8 @@ import (
 	"time"
 )
 
+var isWaken bool
+
 //WakeUp Package format
 /*
 	package format:
@@ -22,6 +24,7 @@ import (
 	}
 */
 func main() {
+	isWaken = false
 	if len(os.Args) < 3 {
 		fmt.Println("parameter error!")
 		fmt.Println("usage:program ip liveID")
@@ -31,14 +34,14 @@ func main() {
 		fmt.Println("connect fail!")
 	}
 	defer conn.Close()
-	fmt.Printf("Start to wake up XBOX on IP:%v,liveID: %v \n", os.Args[1], os.Args[2])
-	sendWakePackage(conn, os.Args[2])
-	fmt.Printf("Check is XBOX waken up...\n")
-	if checAwake(conn) {
-		fmt.Println("XBOX wake up success!")
-	} else {
-		fmt.Println("XBOX wake up fail!")
-	}
+	//fmt.Printf("Start to wake up XBOX on IP:%v,liveID: %v \n", os.Args[1], os.Args[2])
+	sendAndCheck(conn, os.Args[2])
+	// fmt.Printf("Check is XBOX waken up...\n")
+	// if checAwake(conn) {
+	// 	fmt.Println("XBOX wake up success!")
+	// } else {
+	// 	fmt.Println("XBOX wake up fail!")
+	// }
 }
 
 func connectConsole(ip string) (*net.UDPConn, error) {
@@ -70,6 +73,19 @@ func generateWakePackage(liveid string) []byte {
 	return powerpacket
 }
 
+func sendAndCheck(conn *net.UDPConn, liveid string) {
+	fmt.Printf("Start to wake up XBOX on IP:%v,liveID: %v \n", os.Args[1], os.Args[2])
+	n := 1
+	for isWaken == false {
+		sendWakePackage(conn, liveid)
+		fmt.Printf("Check is XBOX waken up...%v\n", n)
+		if checAwake(conn) {
+			isWaken = true
+			fmt.Println("XBOX wake up success!")
+		}
+	}
+}
+
 func sendWakePackage(conn *net.UDPConn, liveid string) (int, error) {
 	return conn.Write(generateWakePackage(liveid))
 }
@@ -83,16 +99,15 @@ func checAwake(conn *net.UDPConn) bool {
 		return false
 	}
 	readBuf := make([]byte, 1024)
-	i := 0
-	for i < 5 {
-		fmt.Printf("Checking is XBOX waken up,retry=%v\n", i+1)
-		conn.SetReadDeadline(time.Now().Add(time.Second * 2))
-		_, err := conn.Read(readBuf)
-		if err == nil {
-			return true
-		}
-		i++
+
+	fmt.Printf("Checking is XBOX waken up\n")
+	conn.SetReadDeadline(time.Now().Add(time.Second * 5))
+	_, err = conn.Read(readBuf)
+	if err == nil {
+
+		return true
 	}
+	fmt.Printf("Checking fail,err=%v\n", err)
 
 	return false
 }
